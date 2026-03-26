@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background: #0a1223;
+  color: #e6f0ff;
+  text-align: center;
+}
+
+h1 {
+  color: #d7e8ff;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #b0c4de;
+  margin: 0.5rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #4a9eff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+a:hover {
+  color: #6bb3ff;
+  text-decoration: underline;
+}
+
+.game-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border: 2px solid #2b4064;
+}
