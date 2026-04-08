@@ -60,3 +60,7 @@ nav li {
   height: 150px;
   object-fit: cover;
 }
+
+.hidden {
+  display: none;
+}
