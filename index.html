@@ -10,46 +10,13 @@
 
 
 <!-- code for the nav bar -->
-<head>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-}
-
-h2, p {
-  margin: 10px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #252f3f;
-  display: flex;
-  justify-content: center;
-}
-
-ul li a {
-  display: block;
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul li a:hover {
-  background-color: #0c161f;
-}
-</style>
-</head>
 
 
-<ul>
+<ul class="top-nav">
   <li><a href="index.html">Home</a></li>
-  <li><a href="subpage1Flappy.html">Flappy Bird</a></li>
-  <li><a href="subpage2Titan.html">Titan Attack</a></li>
-  <li><a href="subpage3Dino.html">Dino Game</a></li>
-  <li><a href="subpage4Invade.html">Space Invaders</a></li>
+  <li><a id="settingsBtn" href="#">Settings</a></li>
+  <li><a href="Stuff.html">Extra Details</a></li>
+
 </ul>
 
 
@@ -112,38 +79,21 @@ ul li a:hover {
     </nav>
 
 
-    <!-- code for the button -->
-    <p>‎ </p>
-    <button id="unlock-btn">Cool Button</button>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.hidden').forEach(function(el) {
-          el.style.display = 'none';
-        });
-      });
-      document.getElementById('unlock-btn').addEventListener('click', function() {
-        var code = prompt("Enter the code:");
-        if (code === "1347") {
-          document.querySelectorAll('.hidden').forEach(function(el) {
-            el.classList.remove('hidden');
-            el.style.display = '';
-          });
-          this.style.display = 'none';
-        } else if (code === "1234") {
-          alert("wow 1234 how original. ill give you a hint, its not 1234");
-        } else if (code === "1111") {
-          alert("wow 1111 how original. ill give you a hint, its not 1111");
-        } else if (code === "TDX") {
-          alert("TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX. its not TDX");
-        } else if (code === "tdx") {
-          alert("TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX TDX. its not TDX");
-        } else if (code === "hi") {
-          alert("hi");
-        } else {
-          alert("Wrong code! Try again.");
-        }
-      });
-    </script>
+
+    <!-- The Modal -->
+    <div id="settingsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Settings</h2>
+        <p>Toggle Light Mode:</p>
+        <button id="toggleMode">Enable Light Mode</button>
+        <br><br>
+        <p>Unlock Secret Games:</p>
+        <button id="unlock-btn-modal">Cool Button</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

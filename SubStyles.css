@@ -38,3 +38,15 @@ a:hover {
   margin: 1.5rem 0;
   border: 2px solid #2b4064;
 }
+
+table {
+  width: 100%;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+}
