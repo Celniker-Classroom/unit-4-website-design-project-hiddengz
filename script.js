@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Modal logic
+// settings tab
 if (document.getElementById('settingsModal')) {
   var modal = document.getElementById("settingsModal");
   var btn = document.getElementById("settingsBtn");
@@ -26,7 +26,7 @@ if (document.getElementById('settingsModal')) {
   }
 }
 
-// Toggle mode
+// dark mode stuffs
 if (document.getElementById('toggleMode')) {
   var toggleBtn = document.getElementById("toggleMode");
   toggleBtn.onclick = function() {
@@ -39,7 +39,7 @@ if (document.getElementById('toggleMode')) {
   }
 }
 
-// Unlock button in modal
+// cool code button
 if (document.getElementById('unlock-btn-modal')) {
   document.getElementById('unlock-btn-modal').addEventListener('click', function() {
     var code = prompt("Enter the code:");
@@ -65,9 +65,9 @@ if (document.getElementById('unlock-btn-modal')) {
   });
 }
 
-// Flappy Bird page button
+// Flappy Bird button
 if (document.getElementById('clickMeBtn')) {
   document.getElementById('clickMeBtn').addEventListener('click', function() {
-    alert('the first number is 1');
+    alert('the first number in the code is 1');
   });
 }

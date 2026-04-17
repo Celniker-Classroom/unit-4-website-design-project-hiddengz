@@ -8,7 +8,7 @@ body {
   text-align: center;
 }
 
-/* Top navigation bar */
+/* very epic nav bar styling */
 .top-nav {
   list-style-type: none;
   margin: 0;
@@ -93,7 +93,7 @@ nav li {
   display: none;
 }
 
-/* Light mode styles */
+/* Light mode */
 .light-mode {
   background: #f0f0f0;
   color: #333;
@@ -118,7 +118,7 @@ nav li {
   border-color: #999;
 }
 
-/* Modal styles */
+/* settings tab styles */
 .modal {
   display: none;
   position: fixed;
