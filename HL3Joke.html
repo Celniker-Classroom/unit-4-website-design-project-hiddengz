@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Half Life 3</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            overflow: hidden;
+        }
+        canvas {
+            border: 2px solid #444;
+            background-color: #333;
+        }
+        #game-ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        .stat-container {
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            margin-bottom: 3px;
+        }
+        .stat-bar-container {
+            width: 150px;
+            height: 15px;
+            background-color: #333;
+            border: 1px solid #555;
+        }
+        .stat-bar {
+            height: 100%;
+            transition: width 0.3s;
+        }
+        #health-bar {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="game-ui">
+        <div class="stat-container">
+            <div class="stat-label">Health: <span id="health">100</span></div>
+            <div class="stat-bar-container">
+                <div id="health-bar" class="stat-bar" style="width: 100%;"></div>
+            </div>
+        </div>
+        <div>Bullets: <span id="bullets">20</span></div>
+    </div>
+    <script src="HL3Code.js"></script>
+</body>
+</html>
