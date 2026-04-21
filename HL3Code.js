@@ -1,10 +1,40 @@
-// i didnt code this btw. only the things labeled subpages, stuff, and index
+// Half-Life 3 Game - Complete Rewrite
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-
 canvas.width = 800;
 canvas.height = 600;
+
+// Image loading with proper tracking
+const images = {};
+let imagesReady = false;
+
+function loadImage(name, src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+            images[name] = img;
+            console.log(`Image loaded: ${name}`);
+            resolve(img);
+        };
+        img.onerror = () => {
+            console.error(`Failed to load image: ${name} from ${src}`);
+            reject(new Error(`Failed to load ${name}`));
+        };
+        img.src = src;
+    });
+}
+
+// Load all images
+Promise.all([
+    loadImage('headcrab', 'image/Headcrab.webp'),
+    loadImage('gasMask', 'image/GasMask.jpeg')
+]).then(() => {
+    imagesReady = true;
+    console.log('All images loaded successfully!');
+}).catch(err => {
+    console.error('Image loading failed:', err);
+});
 
 // Game state
 const gameState = {
@@ -21,7 +51,7 @@ const gameState = {
     bullets: [],
     ammoCrates: [],
     lastSpawnTime: 0,
-    spawnInterval: 3000, // Spawn enemies every 3 seconds
+    spawnInterval: 3000,
     lastDamageTime: 0,
     damageInterval: 1000,
     gameOver: false
@@ -29,8 +59,8 @@ const gameState = {
 
 // Enemy types
 const enemyTypes = [
-    { type: 'headcrab', color: 'green', speed: 4, damage: 5, health: 10, width: 15, height: 15 },
-    { type: 'gas_mask_guy', color: 'grey', speed: 1.5, damage: 15, health: 30, width: 30, height: 30 }
+    { type: 'headcrab', speed: 4, damage: 5, health: 10, width: 50, height: 50 },
+    { type: 'gas_mask_guy', speed: 1.5, damage: 15, health: 30, width: 60, height: 60 }
 ];
 
 // Controls
@@ -47,17 +77,19 @@ let mouseY = 0;
 
 // Event listeners
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'w') keys.w = true;
-    if (e.key === 'a') keys.a = true;
-    if (e.key === 's') keys.s = true;
-    if (e.key === 'd') keys.d = true;
+    const key = e.key.toLowerCase();
+    if (key === 'w') keys.w = true;
+    if (key === 'a') keys.a = true;
+    if (key === 's') keys.s = true;
+    if (key === 'd') keys.d = true;
 });
 
 window.addEventListener('keyup', (e) => {
-    if (e.key === 'w') keys.w = false;
-    if (e.key === 'a') keys.a = false;
-    if (e.key === 's') keys.s = false;
-    if (e.key === 'd') keys.d = false;
+    const key = e.key.toLowerCase();
+    if (key === 'w') keys.w = false;
+    if (key === 'a') keys.a = false;
+    if (key === 's') keys.s = false;
+    if (key === 'd') keys.d = false;
 });
 
 canvas.addEventListener('mousemove', (e) => {
@@ -286,10 +318,13 @@ function draw() {
         ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     });
 
-    // Draw enemies
+    // Draw enemies with images
     gameState.enemies.forEach(enemy => {
-        ctx.fillStyle = enemy.color;
-        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        if (enemy.type === 'headcrab' && images.headcrab) {
+            ctx.drawImage(images.headcrab, enemy.x, enemy.y, enemy.width, enemy.height);
+        } else if (enemy.type === 'gas_mask_guy' && images.gasMask) {
+            ctx.drawImage(images.gasMask, enemy.x, enemy.y, enemy.width, enemy.height);
+        }
     });
 
     // Draw ammo crates
